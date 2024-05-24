@@ -1,30 +1,33 @@
-# React + TypeScript + Vite
+# Markdown to PDF Converter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a web application built with React that allows you to convert Markdown files to PDF format. It provides a split-screen interface with a live preview, making it easy to write and preview your Markdown content before converting it to a PDF.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Live Markdown Preview**: Write your Markdown content in the editor, and see the rendered output in real-time.
+- **File Upload**: Upload your existing Markdown files to the editor.
+- **PDF Download**: Download your Markdown content as a PDF file with a single click.
+- **Responsive Design**: The application is designed to work seamlessly on various screen sizes, from desktops to mobile devices.
 
-## Expanding the ESLint configuration
+## Demo
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+You can try the live demo of the Markdown to PDF Converter here: [https://markdown-to-pdf-converter.vercel.app/](https://markdown-to-pdf-converter.vercel.app/)
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies Used
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Vite React App
+- Tailwind CSS
+- CodeMirror (for the Markdown editor)
+- react-markdown-preview (for rendering Markdown)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Credits
+
+This Markdown to PDF Converter app was created by [Ishaan Gupta](https://github.com/ishaangupta-YB). You can find the source code on [GitHub](https://github.com/ishaangupta-YB/markdown-to-pdf-converter).
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please create a new issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
