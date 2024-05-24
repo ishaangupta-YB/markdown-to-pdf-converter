@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.editor-container {
+  height: 100%;
+  overflow: auto;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .preview,
+  .preview * {
+    visibility: visible;
+  }
+  .preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
