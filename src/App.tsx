@@ -2,7 +2,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import TextEditor from "./components/TextEditor";
 import TextPreview from "./components/TextPreview";
-import EditorControls from "./components/EditorControls";
 
 const MIN_PCT = 20;
 const MAX_PCT = 80;
