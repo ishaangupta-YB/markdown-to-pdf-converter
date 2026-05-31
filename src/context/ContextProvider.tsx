@@ -5,24 +5,51 @@ import {
   ReactNode,
   Dispatch,
   SetStateAction,
+  useMemo,
 } from "react";
 
 interface TextContextProps {
   text: string;
   setText: Dispatch<SetStateAction<string>>;
+  editorFont: string;
+  setEditorFont: Dispatch<SetStateAction<string>>;
+  editorColor: string;
+  setEditorColor: Dispatch<SetStateAction<string>>;
 }
 
 interface ContextProviderProps {
   children: ReactNode;
 }
 
+export const EDITOR_FONTS = [
+  { label: "Geist Mono", value: '"Geist Mono", monospace' },
+  { label: "JetBrains Mono", value: '"JetBrains Mono", monospace' },
+  { label: "Geist Sans", value: '"Geist", system-ui, sans-serif' },
+  { label: "Instrument Serif", value: '"Instrument Serif", Georgia, serif' },
+  { label: "Fraunces", value: '"Fraunces", Georgia, serif' },
+] as const;
+
 export const Context = createContext<TextContextProps | undefined>(undefined);
 
 export const ContextProvider: FC<ContextProviderProps> = ({ children }) => {
   const [text, setText] = useState<string>(initialText);
+  const [editorFont, setEditorFont] = useState<string>(EDITOR_FONTS[0].value);
+  const [editorColor, setEditorColor] = useState<string>("#1b1a17");
+
+  const contextValue = useMemo(
+    () => ({
+      text,
+      setText,
+      editorFont,
+      setEditorFont,
+      editorColor,
+      setEditorColor,
+    }),
+    [text, editorFont, editorColor]
+  );
 
   return (
-    <Context.Provider value={{ text, setText }}>{children}</Context.Provider>
+    <Context.Provider value={contextValue}>{children}</Context.Provider>
   );
 };
 const initialText = `# Markdown to PDF Converter
@@ -34,10 +61,10 @@ const initialText = `# Markdown to PDF Converter
 \`\`\`
 
 ## How to Use the Markdown to PDF Converter?
-1. Click the **Upload File** button to select a \`.md\` file.
+1. Click the **Upload** button to select a \`.md\` file.
 2. Edit your content in the left-hand panel with real-time preview.
-3. Click the **Download PDF** button!
-4. Set 'Destination' to **Save as PDF**.
+3. Click the **Print PDF** button!
+4. Set “Destination” to **Save as PDF**.
 5. **For best results, use Chrome**.
 
 ## Key Features
